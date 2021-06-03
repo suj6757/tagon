@@ -3,15 +3,25 @@ const uri = "mongodb+srv://ujsong:xn64sz@taemongdb.r3k7c.mongodb.net/myFirstData
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
+  
   client.close();
+}).then(() => {
+    console.log("connect success");
+}).catch(err => {
+    console.log(err);
+
+    client.close();
+});
+
+MongoClient.get('/', (req, res) => {
+    res.send('hello world');
 });
 
 
 /*
 
 
-// 1. mongoose 모듈 가져y오기
+// 1. mongoose 모듈 가져오기
 var mongoose = require('mongoose');
 // 2. testDB 세팅
 mongoose.connect('mongodb+srv://ujsong:xn64sz@taemongdb.r3k7c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
