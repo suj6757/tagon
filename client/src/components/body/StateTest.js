@@ -45,7 +45,7 @@ class StateTest extends React.Component {
     }
     
     componentDidMount = () => {
-        this.callApi();
+        //this.callApi();
     }
 
     callApi = async () => {

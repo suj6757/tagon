@@ -24,7 +24,7 @@ class Main extends React.Component {
     state = {
         customers : ""
     }
-
+    /* 
     componentDidMount() {
         this.callApi().then(res => this.setState({ customers : res })).catch(err => console.log(err));
     }
@@ -35,11 +35,12 @@ class Main extends React.Component {
 
         return body;
     }
-
+    */
     render() {
         const { classes } = this.props;
     
         return (
+            /*
             <Paper className={classes.root}>
                 <Table className={classes.table}>
                     <TableHead>
@@ -71,6 +72,8 @@ class Main extends React.Component {
                     </TableBody>
                 </Table>
             </Paper>
+            */
+           Main
         );
     }
 }
