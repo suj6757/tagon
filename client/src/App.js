@@ -1,26 +1,30 @@
 import React from 'react';
 import Routes from './Routes';
 import Login from './components/body/Login';
-
 class App extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      id : ''
-    }
-  }
+    constructor(props) {
+        super(props);
 
-  render() {
-    console.log(window.sessionStorage.getItem("ID"));
+        this.state = {
+            id : ''
+        }
+    }
 
-    if(window.sessionStorage.getItem("ID") == null) {
-      return <Login />;
+    callBack = (data) => {
+        this.setState({
+            id : data
+        });
     }
-    else {
-      return <Routes />;
+
+    render() {
+        if(window.sessionStorage.getItem("ID") == null) {
+            return <Login callBack={this.callBack} />;
+        }
+        else {
+            return <Routes />;
+        }
     }
-  }
 }
 
 export default App;
