@@ -1,54 +1,16 @@
-var grpcjs = require('@grpc/grpc-js');
-var protoLoader = require('@grpc/proto-loader');
-
+/*
 const express = require('express');
-const app = express();
+const router = express.Router();
 
+const trends = require('./sample_GetIndustry_PFactor_TrendAndFactor');
 
-var PROTO_PATH_TEST = __dirname  + '/TrendService.proto';
-var packageDefinition_Test = protoLoader.loadSync(PROTO_PATH_TEST,
-    {
-        keepCase: true,
-        longs: String,
-        enums: String,
-        defaults: true,
-        oneofs: true
-    });
-var protoDescriptor_Test = grpcjs.loadPackageDefinition(packageDefinition_Test);
-var client_Test = new protoDesc riptor_Test.TrendService.TrendInfo('203.245.41.17:50052', grpcjs.credentials.createInsecure());
+app.use('/trend', trends);
 
-var data = {
-    FromDate : "2021-05-01", 
-    ToDate : "2021-05-30", 
-    Category1 : "패션의류",
-    Category2 : "여성의류",
-    Category3 : "티셔츠",
-    Keyword : "",
-    Category_upper : "스타일",
-    Name : "베이직"
-}
-
-client_Test.GetIndustry_PFactor_TrendAndFactor(data, function(err, data) {
-    try
-    {
-        console.log('error : ', err);
-        console.log(data);
-        console.log(data.SentimentFactorDatas)
-    }
-    catch(ex)
-    {
-        console.log(ex)
-    }
-});
+module.exports = router;
 
 
 
-
-
-
-
-
-
+*/
 
 
 /*
