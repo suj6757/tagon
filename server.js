@@ -1,3 +1,45 @@
+var grpcjs = require('@grpc/grpc-js');
+var protoLoader = require('@grpc/proto-loader');
+// proto 파일 로드
+var PROTO_PATH_TEST = __dirname  + '/TrendService.proto';
+var packageDefinition_Test = protoLoader.loadSync(
+    PROTO_PATH_TEST, { keepCase: true
+                     , longs: String
+                     , enums: String
+                     , defaults: true
+                     , oneofs: true
+                     });
+var protoDescriptor_Test = grpcjs.loadPackageDefinition(packageDefinition_Test);
+
+// 서버 연결 서비스 생성
+// 현재 서버는 세팅 중이며 완료 시, 실제 URL을 공유 드리겠습니다.
+// 하단 URL은 동작하지 않습니다.
+var client_Test = new protoDescriptor_Test.TrendService.TrendInfo('192.168.1.2:5000', grpcjs.credentials.createInsecure());
+
+// 요청 데이터(Request)
+var data = {
+    FromDate : "2021-05-01"
+,   ToDate : "2021-05-10"
+,   CategoryCode : ["50000234", "50000235"]
+}  
+
+// 실제 데이터 요청
+client_Test.GetIndustry_PFactor_TrendQuad(data, function(err, data) {
+    try 
+    {
+        console.log('error : ', err);
+        console.log(data);
+        //console.log(data.Message)
+        //console.log(data.Datas[0].Name)
+    }
+    catch(ex)
+    {
+        console.log(ex)
+    }
+});
+
+
+/*
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://ujsong:xn64sz@taemongdb.r3k7c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -9,6 +51,7 @@ client.connect(err => {
 }).then(() => {
     console.log("success");
 });
+*/
 
 
 /*
