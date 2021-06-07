@@ -24,7 +24,7 @@ class Login extends React.Component {
 
     componentDidMount = () => {
         console.log(this.state.resData);
-
+        
         this.callApi();
     }
 

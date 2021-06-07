@@ -32,8 +32,9 @@ client.connect(err => {
 const express = require('express');
 const router = express();
 
-router.use('/api/Login', require('./api/Login'));
-router.use('/api/TotalCategory_List', require('./api/TotalCategory_List'));
+
+router.use('/api/Login', require('./api/sample_Login'));
+router.use('/api/TotalCategory_List', require('./api/sample_GetIndustry_TotalCategory_List'));
 
 var port = 5000;
 
