@@ -19,6 +19,7 @@ class Login extends React.Component {
  
     saveId = () => {
         window.sessionStorage.setItem("ID", this.state.id);
+        this.props.callBack(this.state.id);
     }
 
     componentDidMount = () => {

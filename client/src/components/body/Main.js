@@ -73,7 +73,9 @@ class Main extends React.Component {
                 </Table>
             </Paper>
             */
-           Main
+           <>
+                Main
+           </>
         );
     }
 }
