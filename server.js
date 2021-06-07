@@ -8,7 +8,22 @@ client.connect(err => {
 });
 
 
-/*
+// express 사용해서 api 호출 링크별로 route 해주게 설정
+const express = require('express');
+const router = express();
+
+router.use('/api/Login', require('./api/Login'));
+router.use('/api/TotalCategory_List', require('./api/TotalCategory_List'));
+
+var port = 5000;
+
+router.listen(port, function () {
+    console.log('Example app listening on port : ' + port);
+});
+
+module.exports = router;
+
+/* 
 
 
 // 1. mongoose 모듈 가져y오기
