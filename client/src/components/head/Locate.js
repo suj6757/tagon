@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-
 class Locate extends React.Component {
     render() {
         return (
@@ -9,7 +7,6 @@ class Locate extends React.Component {
                 <Link to='/'>Main</Link>
                 <Link to='/add'>Add</Link>
                 <Link to='/test'>Test</Link>
-                <Link to='/grpc'>Grpc</Link>
             </div>
         );
     }
