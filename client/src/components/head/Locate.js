@@ -7,6 +7,7 @@ class Locate extends React.Component {
                 <Link to='/'>Main</Link>
                 <Link to='/add'>Add</Link>
                 <Link to='/test'>Test</Link>
+                <Link to='/data'>Data</Link>
             </div>
         );
     }
